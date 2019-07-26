@@ -1,1 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
+
+.idea-form {
+  height: 305px;
+  width: 500px;
+  margin: auto;
+
+  .description {
+    height: 100px;
+  }
+}

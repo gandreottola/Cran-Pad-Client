@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Idea-Board</title>
+      <title>Idea-Pad</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -10,11 +10,10 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>IDEA PAD</h1>
 
       <h3 id="message" class="alert"></h3>
 
@@ -49,6 +48,7 @@
             <button class="sign-out" id="sign-out">Sign Out</button>
           </div>
             </div>
+            <button id="back">Back</button>
 
   <button id="newIdeaButton">New Idea</button>
   <form id="new-idea" class="modal-content idea-form">
@@ -90,7 +90,9 @@
   <button>Save Edit</button>
   </form>
 
-<div id="filters">
+  <button id="showIdeasButton">Show All Ideas</button>
+
+<!--<div id="filter">
 <button id="showIdeasButton" class="button is-checked">Show All Ideas</button>
 <label>Filter by category:
 <button class="button" data-filter=".music">Music</button>
@@ -100,7 +102,7 @@
 <button class="button" data-filter=".homes">Homes</button>
 <button class="button" data-filter=".finance">Finance</button>
 </label>
-</div>
+</div>-->
 </div>
 
 <div id="content" class="content"></div>

@@ -13,6 +13,7 @@ $('#save-edit').hide()
 const onIdeaButton = event => {
   event.preventDefault()
   $('#new-idea').show()
+  $('#save').show()
 }
 
 // Saves idea once user finish filling out form

@@ -5,6 +5,8 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
 
+$('#back').hide()
+
 const onSignUp = event => {
   event.preventDefault()
 
@@ -12,7 +14,7 @@ const onSignUp = event => {
   const formData = getFormFields(form)
   api.signUp(formData)
     .then(ui.signUpSuccessful)
-    .catch(ui.signUpFailure)
+    .catch(ui.failure)
 }
 
 const onSignIn = event => {
@@ -22,7 +24,7 @@ const onSignIn = event => {
   const formData = getFormFields(form)
   api.signIn(formData)
     .then(ui.signInSuccessful)
-    .catch(ui.signInFailure)
+    .catch(ui.failure)
 }
 
 const onSettings = () => {
@@ -36,7 +38,7 @@ const onChangePassword = event => {
   const formData = getFormFields(form)
   api.changePassword(formData)
     .then(ui.changePasswordSuccessful)
-    .catch(ui.changePasswordFailure)
+    .catch(ui.failure)
 }
 
 const onSignOut = event => {
@@ -44,7 +46,7 @@ const onSignOut = event => {
 
   api.signOut()
     .then(ui.signOutSuccessful)
-    .catch(ui.signOutFailure)
+    .catch(ui.failure)
 }
 
 const onChangeEmail = event => {
@@ -54,7 +56,15 @@ const onChangeEmail = event => {
   const formData = getFormFields(form)
   api.changeEmail(formData, store.user.id)
     .then(ui.changeEmailSuccessful)
-    .catch(ui.Failure)
+    .catch(ui.failure)
+}
+
+const onBack = () => {
+  $('#signin-settings').hide()
+  $('#newIdeaButton').show()
+  $('#showIdeasButton').show()
+  $('#settings').show()
+  $('#back').hide()
 }
 
 const addHandlers = () => {
@@ -64,6 +74,7 @@ const addHandlers = () => {
   $('#sign-out').on('click', onSignOut)
   $('#settings').on('click', onSettings)
   $('#change-email').on('submit', onChangeEmail)
+  $('#back').on('click', onBack)
 }
 
 module.exports = {

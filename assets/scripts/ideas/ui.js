@@ -33,12 +33,13 @@ const createIdeaSuccessful = responseData => {
 
 // shows all ideas by user
 const showIdeasSuccessful = data => {
-  successMessage('Here are your amazing ideas!')
+  successMessage('Here are your great ideas!')
 
   const showIdeasHtml = showIdeasTemplate({ ideas: data.ideas })
   store.data = data
 
   $('.content').html(showIdeasHtml)
+  $('.content').show()
 }
 
 // updates idea

@@ -11,6 +11,7 @@ const successMessage = message => {
 
   // clear out our forms
   $('form').trigger('reset')
+  $('#search').val('')
 }
 
 const failure = message => {
@@ -25,10 +26,14 @@ const failure = message => {
 
 // creates idea
 const createIdeaSuccessful = responseData => {
-  successMessage('Awesome Idea!!')
+  successMessage('Idea Saved!!')
 
   $('#new-idea').hide()
   store.idea = responseData.idea
+
+  const showIdeasHtml = showIdeasTemplate({ideas: responseData})
+
+  $('.content').html(showIdeasHtml)
 }
 
 // shows all ideas by user
@@ -37,26 +42,49 @@ const showIdeasSuccessful = data => {
 
   const showIdeasHtml = showIdeasTemplate({ ideas: data.ideas })
   store.data = data
+  store.filter = store.data.ideas
 
   $('.content').html(showIdeasHtml)
   $('.content').show()
 }
 
 // updates idea
-const updateIdeaSuccessful = responseData => {
-  successMessage('Edit saved!')
+const updateIdeaSuccessful = (data, id) => {
+  successMessage(` #${store.id} Idea Edit Saved!`)
   $('#new-idea').hide()
   $('#save-edit').hide()
+
+  const showIdeasHtml = showIdeasTemplate({ ideas: data.ideas })
+
+  $('.content').html(showIdeasHtml)
 }
 
 // deletes idea
-const deleteIdeaSuccessful = responseData => {
-  successMessage('Idea removed!')
+const deleteIdeaSuccessful = data => {
+  successMessage(`Idea Removed!`)
+
+  const showIdeasHtml = showIdeasTemplate({ ideas: data.ideas })
+
+  $('.content').html(showIdeasHtml)
 }
 
 // show idea
 const showIdeaSuccessful = responseData => {
-  successMessage(`Here's your idea`)
+  successMessage(`Here's Your Idea!`)
+
+  const showIdeasHtml = showIdeasTemplate({ ideas: responseData })
+
+  $('.content').html(showIdeasHtml)
+}
+
+const clearIdeas = () => {
+  $('.content').empty()
+}
+
+const cancelForm = () => {
+  $('#new-idea').hide()
+  $('#cancel-form').hide()
+  $('#save-edit').hide()
 }
 
 module.exports = {
@@ -65,5 +93,7 @@ module.exports = {
   showIdeasSuccessful,
   updateIdeaSuccessful,
   deleteIdeaSuccessful,
-  showIdeaSuccessful
+  showIdeaSuccessful,
+  clearIdeas,
+  cancelForm
 }

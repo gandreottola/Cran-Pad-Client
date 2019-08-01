@@ -1,15 +1,17 @@
 {{#each ideas as |idea|}}
+{{log idea}}
   <section data-id="{{idea.id}}">
+    <h4>#{{idea.id}}</h4>
     <h4>
-      name: {{limit idea.name 15}}
+      name: {{name}}
     </h4>
-    <h5>Category: {{category}}</h5>
+    <h5 "{{category}}">Category: {{category}}</h5>
     <h5>Description: {{description}}</h5>
     <h5>Date: {{date}}</h5>
     <!-- {{> partial}} -->
   </section>
   <button data-id="{{idea.id}}"
           class="btn btn-outline-info mr-2 update">Edit</button>
-  <button data-id="{{idea.id}}"
-          class="btn btn-danger delete">Remove</button>
+          <button data-id="{{idea.id}}"
+                  class="btn btn-danger delete">Remove</button>
 {{/each}}

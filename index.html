@@ -1,110 +1,128 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Idea-Pad</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Idea-Pad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-    </head>
-    <body>
-      <h1>IDEA PAD</h1>
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 
-      <h3 id="message" class="alert"></h3>
+</head>
 
-    <div class="login-page">
-            <form class="sign-up" id="sign-up">
-              <input type="email" name="credentials[email]" placeholder="Email">
-              <input type="password" name="credentials[password]" placeholder="Password">
-              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password">
-              <button class="signup">Sign Up</button>
-            </form>
+<body>
+  <h1>IDEA PAD</h1>
 
-            <form class="sign-in" id="sign-in">
-              <input type="email" name="credentials[email]" placeholder="Email">
-              <input type="password" name="credentials[password]" placeholder="Password">
-              <button class="login">Login</button>
-            </form>
+  <h3 id="message" class="alert"></h3>
+
+  <div class="login-page">
+    <form class="sign-up" id="sign-up">
+      <input type="email" name="credentials[email]" placeholder="Email">
+      <input type="password" name="credentials[password]" placeholder="Password">
+      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password">
+      <button class="signup">Sign Up</button>
+    </form>
+
+    <form class="sign-in" id="sign-in">
+      <input type="email" name="credentials[email]" placeholder="Email">
+      <input type="password" name="credentials[password]" placeholder="Password">
+      <button class="login">Login</button>
+    </form>
+  </div>
+
+  <div id="nav-buttons">
+    <div class="signin-settings">
+      <button class="settings" id="settings">Settings</button>
+      <div id="signin-settings">
+        <form id="change-password">
+          <input type="password" name="passwords[old]" placeholder="Old Password">
+          <input type="password" name="passwords[new]" placeholder="New Password">
+          <button class="password">Change Password</button>
+        </form>
+
+        <form id="change-email">
+          <input type="email" name="user[email]" placeholder="New Email">
+          <button class="email">Change Current Email</button>
+        </form>
+
+        <button class="sign-out" id="sign-out">Sign Out</button>
+      </div>
     </div>
 
-<div id="nav-buttons">
-            <div class="signin-settings">
-              <button class="settings" id="settings">Settings</button>
-              <div id="signin-settings">
-            <form id="change-password">
-              <input type="password" name="passwords[old]" placeholder="Old Password">
-              <input type="password" name="passwords[new]" placeholder="New Password">
-              <button class="password">Change Password</button>
-            </form>
-            <form id="change-email">
-              <input type="email" name="user[email]" placeholder="New Email">
-              <button class="email">Change Current Email</button>
-            </form>
-            <button class="sign-out" id="sign-out">Sign Out</button>
-          </div>
-            </div>
-            <button id="back">Back</button>
+    <button id="back">Back</button>
 
-  <button id="newIdeaButton">New Idea</button>
-  <form id="new-idea" class="modal-content idea-form">
-    <div class="form-row-1">
-    <label>Date:
-      <input id="date" class="form-control-plaintext" type="date"
-      name="idea[date]" placeholder="Date">
-    </label>
+    <button id="newIdeaButton">New Idea</button>
+    <form id="new-idea" class="modal-content idea-form">
+
+      <div class="form-row-1">
+        <label>Date:
+          <input id="date" class="form-control-plaintext" type="date" name="idea[date]">
+        </label>
+      </div>
+      <div class="form-row">
+
+        <div class="col">
+          <label>Name:
+            <input id="name" class="form-control-plaintext" type="text" name="idea[name]" placeholder="Idea Name">
+          </label>
+        </div>
+
+        <div class="col">
+          <label>Category:
+            <select id="category" class="form-control-plaintext" name="idea[category]">
+              <option>Choose Category</option>
+              <option value="music">music</option>
+              <option value="sports">sports</option>
+              <option value="tech">tech</option>
+              <option value="cars">cars</option>
+              <option value="homes">homes</option>
+              <option value="finance">finance</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <label>Description:
+        <textarea id="description" class="form-control-plaintext description" name="idea[description]" placeholder="Description"></textarea>
+      </label>
+
+      <button id="save">Save</button>
+    </form>
+
+    <form id="save-edit">
+      <button>Save Edit</button>
+    </form>
+
+    <button id="showIdeasButton">Show All Ideas</button>
+    <button id="clearIdeasButton" class="btn btn-outline-info">Clear Ideas!</button>
+    <button id="cancel-form">Cancel</button>
+
+    <div id="form-search">
+      #<input type="text" name="idea[id]" id="search" placeholder="Search by #ID">
+      <button id="showIdeaButton">Find Idea</button>
+    </div>
+
+    <div id="filter-button-group">
+      <label>Filter By Category:</label>
+      <button data-filter="music">Music</button>
+      <button data-filter="sport">Sports</button>
+      <button data-filter="tech">Tech</button>
+      <button data-filter="cars">Cars</button>
+      <button data-filter="homes">Homes</button>
+      <button data-filter="finance">Finance</button>
+    </div>
+
+    <div id="sort-button">
+      <label>Sort By Date:</label>
+      <button data-sort-by="date">Date</button>
+    </div>
   </div>
-  <div class="form-row">
-    <div class="col">
-    <label>Name:
-    <input id="name" class="form-control-plaintext" type="text"
-    name="idea[name]" placeholder="Idea Name">
-  </label>
-</div>
-<div class="col">
-  <label>Category:
-    <select id="category" class="form-control-plaintext" name="idea[category]">
-    <option>Choose Category</option>
-    <option data-category="music" value="music" id="music">music</option>
-    <option data-category="sports" value="sports">sports</option>
-    <option data-category="tech" value="tech">tech</option>
-    <option data-catgeory="cars" value="cars">cars</option>
-    <option data-category="homes" value="homes">homes</option>
-    <option data-category="finance" value="finance">finance</option>
-  </select>
-  </label>
-</div>
-</div>
-  <label>Description:
-    <textarea id="description" class="form-control-plaintext description"
-          name="idea[description]" placeholder="Description"></textarea>
-  </label>
-  <button id="save">Save</button>
-  </form>
 
-  <form id="save-edit">
-  <button>Save Edit</button>
-  </form>
+  <div id="content" class="content"></div>
+</body>
 
-  <button id="showIdeasButton">Show All Ideas</button>
-
-<!--<div id="filter">
-<button id="showIdeasButton" class="button is-checked">Show All Ideas</button>
-<label>Filter by category:
-<button class="button" data-filter=".music">Music</button>
-<button class="button" data-filter=".sports">Sports</button>
-<button class="button" data-filter=".tech">Tech</button>
-<button class="button" data-filter=".cars">Cars</button>
-<button class="button" data-filter=".homes">Homes</button>
-<button class="button" data-filter=".finance">Finance</button>
-</label>
-</div>-->
-</div>
-
-<div id="content" class="content"></div>
-    </body>
 </html>

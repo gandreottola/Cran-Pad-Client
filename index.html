@@ -55,22 +55,21 @@
 
     <button id="back">Back</button>
 
+<button id="ideaButton">Idea</button>
+<nav id="ideas">
     <button id="newIdeaButton">New Idea</button>
     <form id="new-idea" class="modal-content idea-form">
-
       <div class="form-row-1">
         <label>Date:
           <input id="date" class="form-control-plaintext" type="date" name="idea[date]">
         </label>
       </div>
       <div class="form-row">
-
         <div class="col">
           <label>Name:
             <input id="name" class="form-control-plaintext" type="text" name="idea[name]" placeholder="Idea Name">
           </label>
         </div>
-
         <div class="col">
           <label>Category:
             <select id="category" class="form-control-plaintext" name="idea[category]">
@@ -85,11 +84,9 @@
           </label>
         </div>
       </div>
-
       <label>Description:
         <textarea id="description" class="form-control-plaintext description" name="idea[description]" placeholder="Description"></textarea>
       </label>
-
       <button id="save">Save</button>
     </form>
 
@@ -99,10 +96,9 @@
 
     <button id="showIdeasButton">Show All Ideas</button>
     <button id="clearIdeasButton" class="btn btn-outline-info">Clear Ideas!</button>
-    <button id="cancel-form">Cancel</button>
 
     <div id="form-search">
-      #<input type="text" name="idea[id]" id="search" placeholder="Search by #ID">
+      <label>#<input type="text" name="idea[id]" id="search" placeholder="Search by #ID"></label>
       <button id="showIdeaButton">Find Idea</button>
     </div>
 
@@ -120,6 +116,38 @@
       <label>Sort By Date:</label>
       <button data-sort-by="date">Date</button>
     </div>
+  </nav>
+
+<button id="taskButton">Task</button>
+<nav id="tasks">
+  <button id="newTaskButton">New Task</button>
+<form id="new-task">
+  <input id="start_date" type="date" name="task[start_date]" placeholder="Start Date">
+  <input id="end_date" type="date" name="task[end_date]" placeholder="End Date">
+  <select id="priority" name="task[priority]">
+    <option>Priority</option>
+    <option value="high">High</option>
+    <option value="neutral">Neutral</option>
+    <option value="low">Low</option>
+  </select>
+  <textarea id="task_description" name="task[description]" placeholder="Task"></textarea>
+  <button id="saveTaskButton">Save</button>
+</form>
+
+<button id="showTasksButton">Show All Tasks</button>
+<button id="clearTasksButton" class="btn btn-outline-info">Clear Tasks!</button>
+
+<div id="task-search">
+  <label>#<input type="text" name="task[id]" id="searchTask" placeholder="Search by #ID"></label>
+  <button id="showTaskButton">Find Task</button>
+</div>
+
+<form id="save-edit-task">
+  <button>Save Edit</button>
+</form>
+</nav>
+
+<button id="cancel-form">Cancel</button>
   </div>
 
   <div id="content" class="content"></div>

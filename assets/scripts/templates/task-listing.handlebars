@@ -1,0 +1,15 @@
+{{#each tasks as |task|}}
+{{log task}}
+  <section data-id="{{task.id}}">
+    <h4>#{{task.id}}</h4>
+    <h5>Start Date: {{start_date}}</h5>
+    <h5>End Date: {{end_date}}</h5>
+    <h5>Priority: {{priority}}</h5>
+    <h5>Task: {{description}}</h5>
+    <!-- {{> partial}} -->
+  </section>
+  <button data-id="{{task.id}}"
+          class="btn btn-outline-info mr-2 update-task">Edit</button>
+          <button data-id="{{task.id}}"
+                  class="btn btn-danger delete-task">Remove</button>
+{{/each}}

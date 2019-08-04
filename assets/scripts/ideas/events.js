@@ -10,6 +10,7 @@ $('#new-idea').hide()
 $('#update-idea').hide()
 $('#save-edit').hide()
 $('#cancel-form').hide()
+$('#ideas').hide()
 
 // Displays form for creating idea
 const onIdeaButton = event => {
@@ -172,6 +173,13 @@ const onCancelForm = event => {
   ui.cancelForm()
 }
 
+const onShowIdeaSection = event => {
+  event.preventDefault()
+
+  $('#ideas').show()
+  $('#tasks').hide()
+}
+
 const addHandlers = () => {
   $('#showIdeasButton').on('click', onShowAllIdeas)
   $('#new-idea').on('submit', onCreateIdea)
@@ -184,6 +192,7 @@ const addHandlers = () => {
   $('#sort-button').on('click', 'button', onSort)
   $('#clearIdeasButton').on('click', onClearIdeas)
   $('#cancel-form').on('click', onCancelForm)
+  $('#ideaButton').on('click', onShowIdeaSection)
 }
 
 module.exports = {

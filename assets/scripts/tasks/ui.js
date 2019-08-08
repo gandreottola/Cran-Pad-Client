@@ -37,7 +37,7 @@ const createTaskSuccessful = responseData => {
   const showTasksHtml = showTasksTemplate({tasks: responseData})
 
   $('.content').html(showTasksHtml)
-  $('#cancel-form').hide()
+  $('#cancel-form-task').hide()
   $('#new-task').hide()
 }
 
@@ -61,7 +61,7 @@ const updateTaskSuccessful = (data, id) => {
   const showTasksHtml = showTasksTemplate({ tasks: data.tasks })
 
   $('.content').html(showTasksHtml)
-  $('#cancel-form').hide()
+  $('#cancel-form-task').hide()
 }
 
 // deletes task
@@ -88,7 +88,7 @@ const clearTasks = () => {
 
 const cancelForm = () => {
   $('#new-task').hide()
-  $('#cancel-form').hide()
+  $('#cancel-form-task').hide()
   $('#save-edit-task').hide()
 }
 

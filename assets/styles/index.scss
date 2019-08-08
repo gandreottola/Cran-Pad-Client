@@ -1,11 +1,135 @@
 @import '~bootstrap/scss/bootstrap';
 
-.idea-form {
-  height: 305px;
-  width: 500px;
-  margin: auto;
+h1 {
+  color: white;
+}
 
-  .description {
-    height: 100px;
+.navigation {
+  background-color: #24252a;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 10%;
+
+    a,
+    li {
+      color: #edf0f1;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    button {
+      padding: 9px 25px;
+      background-color: #0088a9;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.3s ease 0s;
+      outline: 0;
+
+      &:hover {
+        background-color: rgba(0, 136, 169, 0.8);
+      }
+    }
   }
 }
+
+.nav-links {
+  list-style: none;
+
+  li {
+    display: inline-block;
+    padding: 0 20px;
+
+    a {
+      transition: 0.3s ease 0s;
+    }
+  }
+
+  a {
+    &:hover {
+      color: #0088a9;
+    }
+  }
+}
+
+.login-forms {
+  background: #f2f2f2;
+  background-size: auto;
+  max-width: 200px;
+  max-height: 400px;
+  margin: 50px;
+  padding: 45px;
+  position: relative;
+  text-align: center;
+
+  input {
+    background: #f2f2f2;
+    border-color: red;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    margin: 0 0 15px;
+    outline: 1;
+    padding: 15px;
+    width: 100%;
+  }
+
+  button {
+    background: #0088a9;
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+    outline: 0;
+    padding: 15px;
+    text-transform: uppercase;
+    width: 100%;
+    transition: 0.3s ease 0s;
+
+    &:active,
+    &:hover {
+      background: rgba(0, 136, 169, 0.8);
+    }
+  }
+
+  .signup-message {
+    color: blue;
+    font-size: 12px;
+    margin: 15px 0 0;
+
+    a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+  }
+
+  .sign-up {
+    display: none;
+  }
+}
+
+.nav-buttons {
+  position: relative;
+  margin-top: 20px;
+  margin-left: 500px;
+  width: 300px;
+
+  .newIdeaButton {
+    position: absolute;
+    margin-left: -230px;
+  }
+}
+
+.content {
+    border: 10px;
+    margin: 10px;
+}
+
+ .description {
+  height: 100px;
+ }

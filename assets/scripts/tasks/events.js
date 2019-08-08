@@ -8,7 +8,7 @@ const store = require('../store')
 $('#tasks').hide()
 $('#new-task').hide()
 $('#save-edit-task').hide()
-$('#cancel-form').hide()
+$('#cancel-form-task').hide()
 
 const onShowTaskSection = event => {
   event.preventDefault()
@@ -22,7 +22,7 @@ const onTaskButton = event => {
   event.preventDefault()
 
   $('#new-task').show()
-  $('#cancel-form').show()
+  $('#cancel-form-task').show()
 }
 
 // limits user to only pick current date and any later dates
@@ -91,7 +91,7 @@ const onUpdateTask = event => {
   $('#saveTaskButton').hide()
   $('#new-task').show()
   $('#save-edit-task').show()
-  $('#cancel-form').show()
+  $('#cancel-form-task').show()
 }
 
 // saves updated form
@@ -139,7 +139,7 @@ const addHandlers = () => {
   $('#save-edit-task').on('submit', onSaveUpdate)
   $('body').on('click', '.delete-task', onDeleteTask)
   $('#newTaskButton').on('click', onTaskButton)
-  $('#cancel-form').on('click', onCancelForm)
+  $('#cancel-form-task').on('click', onCancelForm)
 }
 
 module.exports = {

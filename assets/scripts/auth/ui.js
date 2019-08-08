@@ -3,7 +3,9 @@
 const store = require('../store')
 
 $('#nav-buttons').hide()
+$('#nav-links').hide()
 $('#signin-settings').hide()
+$('#sign-out').hide()
 
 const successMessage = message => {
   $('#message').text(message).show()
@@ -31,12 +33,13 @@ const signUpSuccessful = responseData => {
 
 const signInSuccessful = responseData => {
   successMessage('Sign in successful!')
+  $('#nav-links').show()
   $('#nav-buttons').show()
   $('#showIdeasButton').show()
   $('#settings').show()
   $('#newIdeaButton').show()
-  $('#sign-in').hide()
-  $('#sign-up').hide()
+  $('#sign-out').show()
+  $('.login-forms').hide()
   $('#back').hide()
   // keeping track of the user, so we can have the token for the api
   // we use 'store' so we can access the token in any file

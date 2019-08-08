@@ -15,3 +15,9 @@ $(() => {
   ideasEvents.addHandlers()
   tasksEvents.addHandlers()
 })
+
+// transition between login form and sign-up form
+$('.signup-message').click(() => {
+  $('.sign-up').animate({ height: 'toggle', opacity: 'toggle' }, 'slow')
+  $('.sign-in').animate({ height: 'toggle', opacity: 'toggle' }, 'slow')
+})

@@ -15,28 +15,41 @@
 </head>
 
 <body>
-  <h1>IDEA PAD</h1>
+  <div class="navigation">
+<header>
+  <h1>title</h1>
+<nav>
+  <ul class="nav-links" id="nav-links">
+    <li class="settings" id="settings"><a href="#">Settings</a></li>
+    <li class="ideaLink" id="ideaButton"><a href="#">Idea</a></li>
+    <li class="taskLink" id="taskButton"><a href="#">Task</a></li>
+  </ul>
+</nav>
+<a href="#"><button id="sign-out">Sign Out</button></a>
+</header>
+</div>
 
-  <h3 id="message" class="alert"></h3>
+<h3 id="message" class="alert"></h3>
 
-  <div class="login-page">
+    <div class="login-forms">
     <form class="sign-up" id="sign-up">
       <input type="email" name="credentials[email]" placeholder="Email">
       <input type="password" name="credentials[password]" placeholder="Password">
       <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password">
-      <button class="signup">Sign Up</button>
+      <button class="signup-button">Sign Up</button>
+      <p class="signup-message">Already Registered? <a href="#">Login</a>
+      </p>
     </form>
 
     <form class="sign-in" id="sign-in">
       <input type="email" name="credentials[email]" placeholder="Email">
       <input type="password" name="credentials[password]" placeholder="Password">
       <button class="login">Login</button>
+      <p class="signup-message">Didn't Register? <a href="#">Sign Up</a></p>
     </form>
   </div>
 
-  <div id="nav-buttons">
-    <div class="signin-settings">
-      <button class="settings" id="settings">Settings</button>
+  <div id="nav-buttons" class="nav-buttons">
       <div id="signin-settings">
         <form id="change-password">
           <input type="password" name="passwords[old]" placeholder="Old Password">
@@ -48,17 +61,21 @@
           <input type="email" name="user[email]" placeholder="New Email">
           <button class="email">Change Current Email</button>
         </form>
-
-        <button class="sign-out" id="sign-out">Sign Out</button>
       </div>
-    </div>
 
     <button id="back">Back</button>
 
-<button id="ideaButton">Idea</button>
-<nav id="ideas">
-    <button id="newIdeaButton">New Idea</button>
-    <form id="new-idea" class="modal-content idea-form">
+
+<div class="ideas" id="ideas">
+  <div class="container mt-3">
+    <div class="row">
+      <div class="span12">
+    <button id="newIdeaButton" class="newIdeaButton" data-toggle="modal" data-target="#myModal">New Idea</button>
+    <div class="idea-modal modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+    <form id="new-idea" class="idea-form">
       <div class="form-row-1">
         <label>Date:
           <input id="date" class="form-control-plaintext" type="date" name="idea[date]">
@@ -87,14 +104,24 @@
       <label>Description:
         <textarea id="description" class="form-control-plaintext description" name="idea[description]" placeholder="Description"></textarea>
       </label>
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal">x</button>
       <button id="save">Save</button>
+    </div>
     </form>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
     <form id="save-edit">
       <button>Save Edit</button>
     </form>
 
-    <button id="showIdeasButton">Show All Ideas</button>
+    <button id="showIdeasButton" class="showIdeasButton">Show All Ideas</button>
     <button id="clearIdeasButton" class="btn btn-outline-info">Clear Ideas!</button>
 
     <div id="form-search">
@@ -116,9 +143,8 @@
       <label>Sort By Date:</label>
       <button data-sort-by="date">Date</button>
     </div>
-  </nav>
+  </div>
 
-<button id="taskButton">Task</button>
 <nav id="tasks">
   <button id="newTaskButton">New Task</button>
 <form id="new-task">
@@ -145,12 +171,11 @@
 <form id="save-edit-task">
   <button>Save Edit</button>
 </form>
+<button id="cancel-form-task">Cancel</button>
 </nav>
-
 <button id="cancel-form">Cancel</button>
   </div>
 
-  <div id="content" class="content"></div>
+<div class="content"></div>
 </body>
-
 </html>

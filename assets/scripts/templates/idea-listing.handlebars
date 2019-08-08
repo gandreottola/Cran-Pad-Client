@@ -1,3 +1,6 @@
+<div class="container">
+  <div class="row">
+<div class="col-lg">
 {{#each ideas as |idea|}}
   <section data-id="{{idea.id}}">
     <h4>#{{idea.id}}</h4>
@@ -9,8 +12,12 @@
     <h5>Date: {{date}}</h5>
     <!-- {{> partial}} -->
   </section>
+
   <button data-id="{{idea.id}}"
           class="btn btn-outline-info mr-2 update">Edit</button>
           <button data-id="{{idea.id}}"
                   class="btn btn-danger delete">Remove</button>
 {{/each}}
+</div>
+</div>
+</div>

@@ -6,7 +6,7 @@ const ui = require('./ui')
 const store = require('../store')
 const showIdeasTemplate = require('../templates/idea-listing.handlebars')
 
-$('#new-idea').hide()
+// $('#new-idea').hide()
 $('#update-idea').hide()
 $('#save-edit').hide()
 $('#cancel-form').hide()
@@ -15,7 +15,7 @@ $('#ideas').hide()
 // Displays form for creating idea
 const onIdeaButton = event => {
   event.preventDefault()
-  $('#new-idea').show()
+  // $('#new-idea').show()
   $('#cancel-form').show()
 }
 

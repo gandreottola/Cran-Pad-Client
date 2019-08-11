@@ -6,17 +6,15 @@ const ui = require('./ui')
 const store = require('../store')
 const showIdeasTemplate = require('../templates/idea-listing.handlebars')
 
-// $('#new-idea').hide()
+$('#new-idea').hide()
 $('#update-idea').hide()
 $('#save-edit').hide()
-$('#cancel-form').hide()
 $('#ideas').hide()
+$('.filter-sort').hide()
 
 // Displays form for creating idea
-const onIdeaButton = event => {
-  event.preventDefault()
-  // $('#new-idea').show()
-  $('#cancel-form').show()
+const onIdeaButton = () => {
+  $('#new-idea').show()
 }
 
 // limits user to only pick the date, on the day they create idea
@@ -67,10 +65,9 @@ const onUpdateIdea = event => {
   $('#description').val(resource.description)
   $('#date').val(resource.date)
 
-  $('#save').hide()
+  $('.save').hide()
   $('#new-idea').show()
   $('#save-edit').show()
-  $('#cancel-form').show()
 }
 
 // saves updated form
@@ -105,7 +102,7 @@ const onDeleteIdea = event => {
 const onShowIdea = event => {
   event.preventDefault()
 
-  const ideaId = $('#search').val()
+  const ideaId = $('#search').val('')
   let id = $(event.target).data('id')
   id = ideaId
 
@@ -167,17 +164,10 @@ const onClearIdeas = event => {
   ui.clearIdeas()
 }
 
-const onCancelForm = event => {
-  event.preventDefault()
-
-  ui.cancelForm()
-}
-
-const onShowIdeaSection = event => {
-  event.preventDefault()
-
+const onShowIdeaSection = () => {
   $('#ideas').show()
   $('#tasks').hide()
+  $('.task-content').hide()
 }
 
 const addHandlers = () => {
@@ -191,7 +181,6 @@ const addHandlers = () => {
   $('#filter-button-group').on('click', 'button', onFilter)
   $('#sort-button').on('click', 'button', onSort)
   $('#clearIdeasButton').on('click', onClearIdeas)
-  $('#cancel-form').on('click', onCancelForm)
   $('#ideaButton').on('click', onShowIdeaSection)
 }
 

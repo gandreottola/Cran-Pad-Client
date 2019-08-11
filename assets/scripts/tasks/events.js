@@ -8,13 +8,14 @@ const store = require('../store')
 $('#tasks').hide()
 $('#new-task').hide()
 $('#save-edit-task').hide()
-$('#cancel-form-task').hide()
 
 const onShowTaskSection = event => {
   event.preventDefault()
 
   $('#tasks').show()
   $('#ideas').hide()
+  $('.content').hide()
+  $('.filter-sort').hide()
 }
 
 // Displays form for creating task
@@ -22,7 +23,6 @@ const onTaskButton = event => {
   event.preventDefault()
 
   $('#new-task').show()
-  $('#cancel-form-task').show()
 }
 
 // limits user to only pick current date and any later dates
@@ -59,7 +59,7 @@ const onShowAllTasks = event => {
 const onShowTask = event => {
   event.preventDefault()
 
-  const taskId = $('#searchTask').val()
+  const taskId = $('#searchTask').val('')
   let id = $(event.target).data('id')
   id = taskId
 
@@ -88,10 +88,9 @@ const onUpdateTask = event => {
   $('#priority').val(resource.priority)
   $('#task_description').val(resource.description)
 
-  $('#saveTaskButton').hide()
+  $('.save').hide()
   $('#new-task').show()
   $('#save-edit-task').show()
-  $('#cancel-form-task').show()
 }
 
 // saves updated form
@@ -123,12 +122,6 @@ const onDeleteTask = event => {
     .catch(ui.failure)
 }
 
-const onCancelForm = event => {
-  event.preventDefault()
-
-  ui.cancelForm()
-}
-
 const addHandlers = () => {
   $('#taskButton').on('click', onShowTaskSection)
   $('#new-task').on('submit', onCreateTask)
@@ -139,7 +132,6 @@ const addHandlers = () => {
   $('#save-edit-task').on('submit', onSaveUpdate)
   $('body').on('click', '.delete-task', onDeleteTask)
   $('#newTaskButton').on('click', onTaskButton)
-  $('#cancel-form-task').on('click', onCancelForm)
 }
 
 module.exports = {

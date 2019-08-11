@@ -11,7 +11,6 @@
   <!-- Do not add `script` tags-->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-
 </head>
 
 <body>
@@ -29,7 +28,8 @@
 </header>
 </div>
 
-<h3 id="message" class="alert"></h3>
+<h3 id="message" class="alert" style="position: fixed; font-size: 20px; width: 200px;
+    border: 0; margin: 0; padding: 0;"></h3>
 
     <div class="login-forms">
     <form class="sign-up" id="sign-up">
@@ -67,15 +67,16 @@
 
 
 <div class="ideas" id="ideas">
-  <div class="container mt-3">
+  <div class="container mt-3 idea">
     <div class="row">
       <div class="span12">
-    <button id="newIdeaButton" class="newIdeaButton" data-toggle="modal" data-target="#myModal">New Idea</button>
-    <div class="idea-modal modal fade" id="myModal">
+    <button id="newIdeaButton" class="btn btn-info newIdeaButton" data-toggle="modal" data-target="#myModal1">New Idea</button>
+    <div class="idea-modal modal fade" id="myModal1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body">
     <form id="new-idea" class="idea-form">
+      <button type="button" class="close" data-dismiss="modal">x</button>
       <div class="form-row-1">
         <label>Date:
           <input id="date" class="form-control-plaintext" type="date" name="idea[date]">
@@ -104,78 +105,119 @@
       <label>Description:
         <textarea id="description" class="form-control-plaintext description" name="idea[description]" placeholder="Description"></textarea>
       </label>
-      <div class="modal-footer">
-        <button type="button" class="close" data-dismiss="modal">x</button>
-      <button id="save">Save</button>
+      <div class="modal-footer save" style="margin-right: 400px;">
+      <button type="submit">Save</button>
     </div>
     </form>
-  </div>
-  </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
     <form id="save-edit">
-      <button>Save Edit</button>
+      <div class="modal-footer" style="margin-right: 400px;">
+      <button type="submit">Save Edit</button>
+    </div>
     </form>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-    <button id="showIdeasButton" class="showIdeasButton">Show All Ideas</button>
-    <button id="clearIdeasButton" class="btn btn-outline-info">Clear Ideas!</button>
+    <button id="showIdeasButton" class="btn btn-info showIdeasButton">Show All Ideas!</button>
+    <button id="clearIdeasButton" class="btn btn-info clearIdeasButton">Clear Ideas!</button>
 
-    <div id="form-search">
+    <div id="form-search" class="form-search">
       <label>#<input type="text" name="idea[id]" id="search" placeholder="Search by #ID"></label>
-      <button id="showIdeaButton">Find Idea</button>
+      <button id="showIdeaButton" class="btn btn-info">Find Idea</button>
     </div>
 
-    <div id="filter-button-group">
+<div class="filter-sort">
+    <div id="filter-button-group" class="filter-buttons">
       <label>Filter By Category:</label>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
       <button data-filter="music">Music</button>
+      </label>
+      <label class="btn btn-secondary">
       <button data-filter="sport">Sports</button>
+    </label>
+      <label class="btn btn-secondary">
       <button data-filter="tech">Tech</button>
+    </label>
+      <label class="btn btn-secondary">
       <button data-filter="cars">Cars</button>
+    </label>
+      <label class="btn btn-secondary">
       <button data-filter="homes">Homes</button>
+    </label>
+      <label class="btn btn-secondary">
       <button data-filter="finance">Finance</button>
+    </label>
+    </div>
     </div>
 
-    <div id="sort-button">
+    <div id="sort-button" class="sort-buttons">
       <label>Sort By Date:</label>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
       <button data-sort-by="date">Date</button>
+    </label>
+  </div>
     </div>
   </div>
+</div>
 
-<nav id="tasks">
-  <button id="newTaskButton">New Task</button>
+<div id="tasks" class="tasks">
+  <div class="container mt-3 task">
+    <div class="row">
+      <div class="span12">
+  <button id="newTaskButton" class="btn btn-info newTaskButton" data-toggle="modal" data-target="#myModal2">New Task</button>
+  <div class="task-modal modal fade" id="myModal2">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
 <form id="new-task">
+  <button type="button" class="close" data-dismiss="modal">x</button>
   <input id="start_date" type="date" name="task[start_date]" placeholder="Start Date">
   <input id="end_date" type="date" name="task[end_date]" placeholder="End Date">
   <select id="priority" name="task[priority]">
     <option>Priority</option>
-    <option value="high">High</option>
-    <option value="neutral">Neutral</option>
-    <option value="low">Low</option>
+    <option id="high" value="high">High</option>
+    <option id="neutral" value="neutral">Neutral</option>
+    <option id="low" value="low">Low</option>
   </select>
   <textarea id="task_description" name="task[description]" placeholder="Task"></textarea>
-  <button id="saveTaskButton">Save</button>
+  <div class="modal-footer save" style="margin-right: 400px;">
+  <button type="submit">Save</button>
+</div>
 </form>
-
-<button id="showTasksButton">Show All Tasks</button>
-<button id="clearTasksButton" class="btn btn-outline-info">Clear Tasks!</button>
-
-<div id="task-search">
-  <label>#<input type="text" name="task[id]" id="searchTask" placeholder="Search by #ID"></label>
-  <button id="showTaskButton">Find Task</button>
+<form id="save-edit-task">
+  <div class="modal-footer" style="margin-right: 400px;">
+  <button type="submit">Save Edit</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
-<form id="save-edit-task">
-  <button>Save Edit</button>
-</form>
-<button id="cancel-form-task">Cancel</button>
-</nav>
-<button id="cancel-form">Cancel</button>
-  </div>
+<button id="showTasksButton" class="btn btn-info showTasksButton">Show All Tasks</button>
+<button id="clearTasksButton" class="btn btn-info clearTasksButton">Clear Tasks!</button>
 
-<div class="content"></div>
+<div id="task-search" class="task-search">
+  <label>#<input type="text" name="task[id]" id="searchTask" placeholder="Search by #ID"></label>
+  <button id="showTaskButton" class="btn btn-info">Find Task</button>
+</div>
+</div>
+</div>
+
+<div class="container" style="margin-left: 200px;">
+    <div class="row"></div>
+<div class="content row col"></div>
+<div class="task-content row col"></div>
+</div>
+
 </body>
 </html>

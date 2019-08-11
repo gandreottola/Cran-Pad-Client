@@ -5,6 +5,7 @@ const showIdeasTemplate = require('../templates/idea-listing.handlebars')
 
 const successMessage = message => {
   $('#message').text(message).show()
+  $('#message').css({'color': 'green'})
   setTimeout(() => { $('#message').hide() }, 3000)
   $('#message').removeClass('failure')
   $('#message').addClass('success')
@@ -16,6 +17,7 @@ const successMessage = message => {
 
 const failure = message => {
   $('#message').text('FAIL!').show()
+  $('#message').css({'color': 'red'})
   setTimeout(() => { $('#message').hide() }, 3000)
   $('#message').removeClass('success')
   $('#message').addClass('failure')
@@ -28,12 +30,17 @@ const failure = message => {
 const createIdeaSuccessful = responseData => {
   successMessage('Idea Saved!!')
 
-  $('#new-idea').hide()
   store.idea = responseData.idea
 
   const showIdeasHtml = showIdeasTemplate({ideas: responseData})
 
   $('.content').html(showIdeasHtml)
+  $('.content').css({'margin-top': '50px'})
+  $('div').removeClass('modal-backdrop fade show')
+  $('div').removeClass('modal-body')
+  $('body').removeClass('modal-open')
+  $('.idea-modal').css({'display': 'none'})
+  $('#new-idea').hide()
 }
 
 // shows all ideas by user
@@ -46,6 +53,7 @@ const showIdeasSuccessful = data => {
 
   $('.content').html(showIdeasHtml)
   $('.content').show()
+  $('.filter-sort').show()
 }
 
 // updates idea
@@ -57,6 +65,10 @@ const updateIdeaSuccessful = (data, id) => {
   const showIdeasHtml = showIdeasTemplate({ ideas: data.ideas })
 
   $('.content').html(showIdeasHtml)
+  $('div').removeClass('modal-backdrop fade show')
+  $('div').removeClass('modal-body')
+  $('body').removeClass('modal-open')
+  $('.idea-modal').css({'display': 'none'})
 }
 
 // deletes idea
@@ -75,16 +87,12 @@ const showIdeaSuccessful = responseData => {
   const showIdeasHtml = showIdeasTemplate({ ideas: responseData })
 
   $('.content').html(showIdeasHtml)
+  $('.content').css({'margin-top': '50px'})
 }
 
 const clearIdeas = () => {
   $('.content').empty()
-}
-
-const cancelForm = () => {
-  $('#new-idea').hide()
-  $('#cancel-form').hide()
-  $('#save-edit').hide()
+  $('.filter-sort').hide()
 }
 
 module.exports = {
@@ -94,6 +102,5 @@ module.exports = {
   updateIdeaSuccessful,
   deleteIdeaSuccessful,
   showIdeaSuccessful,
-  clearIdeas,
-  cancelForm
+  clearIdeas
 }

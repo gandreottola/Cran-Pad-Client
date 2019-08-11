@@ -21,3 +21,15 @@ $('.signup-message').click(() => {
   $('.sign-up').animate({ height: 'toggle', opacity: 'toggle' }, 'slow')
   $('.sign-in').animate({ height: 'toggle', opacity: 'toggle' }, 'slow')
 })
+
+// shows active filter selection
+$('#filter-button-group').click(() => {
+  $(this).addClass('active')
+  $('.btn-secondary').removeClass('active')
+})
+
+// shows active sort selection
+$('#sort-button').click(() => {
+  $(this).addClass('active')
+  $('.btn-secondary').removeClass('active')
+})

@@ -24,20 +24,19 @@ const failure = message => {
   $('form').trigger('reset')
 }
 
-// if (store.task.start_date > store.task.end_date) {
-//   console.log('test')
-// }
-
 // creates task
 const createTaskSuccessful = responseData => {
-  store.task = responseData.task
-
   successMessage('Task Saved!!')
+  store.task = responseData.task
 
   const showTasksHtml = showTasksTemplate({tasks: responseData})
 
-  $('.content').html(showTasksHtml)
-  $('#cancel-form-task').hide()
+  $('.task-content').html(showTasksHtml)
+  $('.task-content').show()
+  $('div').removeClass('modal-backdrop fade show')
+  $('div').removeClass('modal-body')
+  $('body').removeClass('modal-open')
+  $('.task-modal').css({'display': 'none'})
   $('#new-task').hide()
 }
 
@@ -48,8 +47,8 @@ const showAllTasksSuccessful = data => {
   const showTasksHtml = showTasksTemplate({tasks: data.tasks})
   store.data = data
 
-  $('.content').html(showTasksHtml)
-  $('.content').show()
+  $('.task-content').html(showTasksHtml)
+  $('.task-content').show()
 }
 
 // updates task
@@ -60,8 +59,11 @@ const updateTaskSuccessful = (data, id) => {
 
   const showTasksHtml = showTasksTemplate({ tasks: data.tasks })
 
-  $('.content').html(showTasksHtml)
-  $('#cancel-form-task').hide()
+  $('.task-content').html(showTasksHtml)
+  $('div').removeClass('modal-backdrop fade show')
+  $('div').removeClass('modal-body')
+  $('body').removeClass('modal-open')
+  $('.task-modal').css({'display': 'none'})
 }
 
 // deletes task
@@ -70,7 +72,7 @@ const deleteTaskSuccessful = data => {
 
   const showTasksHtml = showTasksTemplate({ tasks: data.tasks })
 
-  $('.content').html(showTasksHtml)
+  $('.task-content').html(showTasksHtml)
 }
 
 // show task
@@ -79,17 +81,11 @@ const showTaskSuccessful = responseData => {
 
   const showTasksHtml = showTasksTemplate({ tasks: responseData })
 
-  $('.content').html(showTasksHtml)
+  $('.task-content').html(showTasksHtml)
 }
 
 const clearTasks = () => {
-  $('.content').empty()
-}
-
-const cancelForm = () => {
-  $('#new-task').hide()
-  $('#cancel-form-task').hide()
-  $('#save-edit-task').hide()
+  $('.task-content').empty()
 }
 
 module.exports = {
@@ -99,6 +95,5 @@ module.exports = {
   updateTaskSuccessful,
   deleteTaskSuccessful,
   showTaskSuccessful,
-  clearTasks,
-  cancelForm
+  clearTasks
 }

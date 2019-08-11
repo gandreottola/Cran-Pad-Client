@@ -9,6 +9,7 @@ $('#sign-out').hide()
 
 const successMessage = message => {
   $('#message').text(message).show()
+  $('#message').css({'color': 'green'})
   setTimeout(() => { $('#message').hide() }, 3000)
   $('#message').removeClass('failure')
   $('#message').addClass('success')
@@ -19,6 +20,7 @@ const successMessage = message => {
 
 const failure = message => {
   $('#message').text('FAIL!').show()
+  $('#message').css({'color': 'red'})
   setTimeout(() => { $('#message').hide() }, 3000)
   $('#message').removeClass('success')
   $('#message').addClass('failure')

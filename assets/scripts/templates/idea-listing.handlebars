@@ -1,23 +1,26 @@
-<div class="container">
-  <div class="row">
-<div class="col-lg">
 {{#each ideas as |idea|}}
+<div class="row col-lg-4 col-md-12" style="padding: 30px 10px; text-align: center;">
+  <div class="card" style="width: 18rem; background-color: #ffff88;">
   <section data-id="{{idea.id}}">
-    <h4>#{{idea.id}}</h4>
-    <h4>
-      name: {{name}}
-    </h4>
+    <div style="display: inline-block;">
+    <button data-id="{{idea.id}}" class="btn btn-outline-danger delete"
+      style="width: 30px; height: 30px; padding: 0; border: 0;">x</button>
+    </div>
+    <div style="margin-left: 200px;display: inline-block;">
+    <h5 style="width: 50px; height: 30px; margin: 0">#{{idea.id}}</h5>
+    </div>
+    <h5>Date: {{date}}</h5>
+    <h5>name: {{name}}</h5>
     <h5 "{{category}}">Category: {{category}}</h5>
     <h5>Description: {{description}}</h5>
-    <h5>Date: {{date}}</h5>
     <!-- {{> partial}} -->
-  </section>
-
-  <button data-id="{{idea.id}}"
-          class="btn btn-outline-info mr-2 update">Edit</button>
-          <button data-id="{{idea.id}}"
-                  class="btn btn-danger delete">Remove</button>
+    </section>
+    <div style="text-align: center">
+<button data-id="{{idea.id}}"
+        class="btn btn-outline-info btn-sm update"
+        style="padding: 4px; width: 5rem;"
+        data-toggle="modal" data-target="#myModal1">Edit</button>
+      </div>
+</div>
+</div>
 {{/each}}
-</div>
-</div>
-</div>

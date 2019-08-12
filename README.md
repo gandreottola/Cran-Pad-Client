@@ -9,8 +9,8 @@ be completed by a certain time frame.
 ![Server Repo](https://github.com/gandreottola/Idea-Pad-Server)
 
 ## Deployed Sites
-- webpage
-- heroku
+ [webpage] (https://gandreottola.github.io/Idea-Pad-Client/)
+ [heroku](https://limitless-atoll-46417.herokuapp.com/)
 
 ## Technologies Used
 * HTML

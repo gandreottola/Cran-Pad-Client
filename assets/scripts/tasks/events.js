@@ -16,6 +16,7 @@ const onShowTaskSection = event => {
   $('#ideas').hide()
   $('.content').hide()
   $('.filter-sort').hide()
+  $('#signin-settings').hide()
 }
 
 // Displays form for creating task
@@ -59,11 +60,12 @@ const onShowAllTasks = event => {
 const onShowTask = event => {
   event.preventDefault()
 
-  const taskId = $('#searchTask').val('')
-  let id = $(event.target).data('id')
-  id = taskId
-
-  api.showTask(id)
+  const taskId = $('#searchTask').val()
+  // if (taskId !== false) {
+  //   ui.showTaskSuccessful()
+  //     .catch(ui.failure)
+  // }
+  api.showTask(taskId)
     .then(ui.showTaskSuccessful)
     .catch(ui.failure)
 }
@@ -126,7 +128,7 @@ const addHandlers = () => {
   $('#taskButton').on('click', onShowTaskSection)
   $('#new-task').on('submit', onCreateTask)
   $('#showTasksButton').on('click', onShowAllTasks)
-  $('#showTaskButton').on('click', onShowTask)
+  $('#task-search').on('click', '#showTaskButton', onShowTask)
   $('#clearTasksButton').on('click', onClearTasks)
   $('body').on('click', '.update-task', onUpdateTask)
   $('#save-edit-task').on('submit', onSaveUpdate)

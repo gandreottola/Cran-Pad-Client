@@ -16,7 +16,7 @@
 <body>
   <div class="navigation">
 <header>
-  <h1>title</h1>
+  <h1>Idea-Task Manager</h1>
 <nav>
   <ul class="nav-links" id="nav-links">
     <li class="settings" id="settings"><a href="#">Settings</a></li>
@@ -50,21 +50,25 @@
   </div>
 
   <div id="nav-buttons" class="nav-buttons">
-      <div id="signin-settings">
+      <div id="signin-settings" style="display: inline-block; position: static;">
         <form id="change-password">
-          <input type="password" name="passwords[old]" placeholder="Old Password">
+          <div class="collapse" id="collapseExample">
+          <input type="password" name="passwords[old]" placeholder="Old Password" >
           <input type="password" name="passwords[new]" placeholder="New Password">
-          <button class="password">Change Password</button>
+        </div>
+          <button  class="password btn btn-primary" type="submit" data-toggle="collapse"
+          data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Change Password</button>
         </form>
 
         <form id="change-email">
+          <div class="collapse2" id="collapseExample2">
           <input type="email" name="user[email]" placeholder="New Email">
-          <button class="email">Change Current Email</button>
+          </div>
+          <button class="email btn btn-primary" type="submit" data-toggle="collapse"
+          data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">Change Current Email</button>
         </form>
       </div>
-
-    <button id="back">Back</button>
-
 
 <div class="ideas" id="ideas">
   <div class="container mt-3 idea">
@@ -176,15 +180,21 @@
     <div class="modal-content">
       <div class="modal-body">
 <form id="new-task">
+  <div class="form-row-1">
   <button type="button" class="close" data-dismiss="modal">x</button>
-  <input id="start_date" type="date" name="task[start_date]" placeholder="Start Date">
-  <input id="end_date" type="date" name="task[end_date]" placeholder="End Date">
+  Start Date: <input id="start_date" class="form-control-plaintext" type="date"
+        name="task[start_date]" placeholder="Start Date">
+  End Date: <input id="end_date" class="form-control-plaintext" type="date"
+        name="task[end_date]" placeholder="End Date">
+      </div>
+      <div class="col">
   <select id="priority" name="task[priority]">
     <option>Priority</option>
     <option id="high" value="high">High</option>
     <option id="neutral" value="neutral">Neutral</option>
     <option id="low" value="low">Low</option>
   </select>
+</div>
   <textarea id="task_description" name="task[description]" placeholder="Task"></textarea>
   <div class="modal-footer save" style="margin-right: 400px;">
   <button type="submit">Save</button>
@@ -208,7 +218,7 @@
 
 <div id="task-search" class="task-search">
   <label>#<input type="text" name="task[id]" id="searchTask" placeholder="Search by #ID"></label>
-  <button id="showTaskButton" class="btn btn-info">Find Task</button>
+  <button id="showTaskButton" type="submit" class="btn btn-info">Find Task</button>
 </div>
 </div>
 </div>

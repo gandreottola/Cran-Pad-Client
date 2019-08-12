@@ -102,7 +102,7 @@ const onDeleteIdea = event => {
 const onShowIdea = event => {
   event.preventDefault()
 
-  const ideaId = $('#search').val('')
+  const ideaId = $('#search').val()
   let id = $(event.target).data('id')
   id = ideaId
 
@@ -168,6 +168,7 @@ const onShowIdeaSection = () => {
   $('#ideas').show()
   $('#tasks').hide()
   $('.task-content').hide()
+  $('#signin-settings').hide()
 }
 
 const addHandlers = () => {
@@ -177,7 +178,7 @@ const addHandlers = () => {
   $('body').on('click', '.update', onUpdateIdea)
   $('#save-edit').on('submit', onSaveUpdate)
   $('body').on('click', '.delete', onDeleteIdea)
-  $('#showIdeaButton').on('click', onShowIdea)
+  $('#form-search').on('click', '#showIdeaButton', onShowIdea)
   $('#filter-button-group').on('click', 'button', onFilter)
   $('#sort-button').on('click', 'button', onSort)
   $('#clearIdeasButton').on('click', onClearIdeas)

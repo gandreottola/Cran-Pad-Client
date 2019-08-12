@@ -49,25 +49,28 @@ const signInSuccessful = responseData => {
 }
 
 const settings = () => {
-  $('#settings').hide()
-  $('#new-idea').hide()
-  $('#showIdeasButton').hide()
-  $('#newIdeaButton').hide()
   $('#signin-settings').show()
-  $('#back').show()
   $('.content').hide()
+  $('#tasks').hide()
+  $('#ideas').hide()
 }
 
 const changePasswordSuccessful = responseData => {
   successMessage('Password successfully changed!')
+
+  $('div').addClass('collapse show')
+  $('.password').removeClass('collapsed')
 }
 
 const signOutSuccessful = responseData => {
   successMessage('Sign out successful!')
   $('#signin-settings').hide()
+  $('#nav-links').hide()
   $('#nav-buttons').hide()
+  $('.login-forms').show()
   $('#sign-in').show()
-  $('#sign-up').show()
+  $('#sign-up').hide()
+  $('#sign-out').hide()
 }
 
 const changeEmailSuccessful = responseData => {

@@ -88,6 +88,7 @@ const showIdeaSuccessful = responseData => {
 
   $('.content').html(showIdeasHtml)
   $('.content').css({'margin-top': '50px'})
+  $('.content').show()
 }
 
 const clearIdeas = () => {

@@ -5,12 +5,12 @@ the ideas. Also the user will have a choice to manage tasks that need to
 be completed by a certain time frame.
 
 ## Github Links
-![Client Repo](https://github.com/gandreottola/Idea-Pad-Client)
-![Server Repo](https://github.com/gandreottola/Idea-Pad-Server)
+[Client Repo](https://github.com/gandreottola/Idea-Pad-Client)
+[Server Repo](https://github.com/gandreottola/Idea-Pad-Server)
 
 ## Deployed Sites
- [webpage] (https://gandreottola.github.io/Idea-Pad-Client/)
- [heroku](https://limitless-atoll-46417.herokuapp.com/)
+ [Webpage](https://gandreottola.github.io/Idea-Pad-Client/)
+ [Heroku](https://limitless-atoll-46417.herokuapp.com/)
 
 ## Technologies Used
 * HTML

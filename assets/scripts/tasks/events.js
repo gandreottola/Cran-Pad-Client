@@ -23,7 +23,14 @@ const onShowTaskSection = event => {
 const onTaskButton = event => {
   event.preventDefault()
 
+  $('#start_date').val('')
+  $('#end_date').val('')
+  $('#priority').val('')
+  $('#task_description').val('')
+
+  $('.save').show()
   $('#new-task').show()
+  $('#save-edit-task').hide()
 }
 
 // limits user to only pick current date and any later dates
@@ -61,10 +68,7 @@ const onShowTask = event => {
   event.preventDefault()
 
   const taskId = $('#searchTask').val()
-  // if (taskId !== false) {
-  //   ui.showTaskSuccessful()
-  //     .catch(ui.failure)
-  // }
+
   api.showTask(taskId)
     .then(ui.showTaskSuccessful)
     .catch(ui.failure)

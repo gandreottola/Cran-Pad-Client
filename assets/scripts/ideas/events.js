@@ -14,7 +14,14 @@ $('.filter-sort').hide()
 
 // Displays form for creating idea
 const onIdeaButton = () => {
+  $('#name').val('')
+  $('#category').val('')
+  $('#description').val('')
+  $('#date').val('')
+
   $('#new-idea').show()
+  $('.save').show()
+  $('#save-edit').hide()
 }
 
 // limits user to only pick the date, on the day they create idea

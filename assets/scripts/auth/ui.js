@@ -58,8 +58,8 @@ const settings = () => {
 const changePasswordSuccessful = responseData => {
   successMessage('Password successfully changed!')
 
-  $('div').addClass('collapse show')
-  $('.password').removeClass('collapsed')
+  $('#collapseExample').removeClass('collapse show')
+  $('#collapseExample').addClass('collapse hide')
 }
 
 const signOutSuccessful = responseData => {
@@ -75,6 +75,9 @@ const signOutSuccessful = responseData => {
 
 const changeEmailSuccessful = responseData => {
   successMessage('Email successfully changed!')
+
+  $('#collapseExample2').removeClass('collapse show')
+  $('#collapseExample2').addClass('collapse hide')
 }
 
 module.exports = {

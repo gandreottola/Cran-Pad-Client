@@ -50,31 +50,44 @@
   </div>
 
   <div id="nav-buttons" class="nav-buttons">
-      <div id="signin-settings" style="display: inline-block; position: static;">
-        <form id="change-password">
-          <div class="collapse" id="collapseExample">
-          <input type="password" name="passwords[old]" placeholder="Old Password" >
-          <input type="password" name="passwords[new]" placeholder="New Password">
-        </div>
-          <button  class="password btn btn-primary" type="submit" data-toggle="collapse"
+      <div id="signin-settings" class="container align-center">
+        <div class="row" style="width: 500px;">
+          <div class="p-4">
+          <button  class="btn btn-primary" data-toggle="collapse"
           data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
           Change Password</button>
-        </form>
+          <div style="width: 200px;">
+                    <div class="collapse" id="collapseExample">
+                  <form id="change-password">
+                    <input type="password" name="passwords[old]" placeholder="Old Password" >
+                    <input type="password" name="passwords[new]" placeholder="New Password">
+                    <button  class="btn btn-outline-dark" type="submit">Submit Change</button>
+                  </form>
+                </div>
+              </div>
+        </div>
 
-        <form id="change-email">
-          <div class="collapse2" id="collapseExample2">
-          <input type="email" name="user[email]" placeholder="New Email">
+        <div class="p-4">
+          <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample2"
+          aria-expanded="false" aria-controls="collapseExample2">Change Current Email</button>
+          <div style="width: 200px;">
+          <div class="collapse" id="collapseExample2">
+            <form id="change-email">
+              <input type="email" name="user[email]" placeholder="New Email">
+              <button class="btn btn-outline-dark" type="submit">Submit Change</button>
+            </form>
+            </div>
           </div>
-          <button class="email btn btn-primary" type="submit" data-toggle="collapse"
-          data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">Change Current Email</button>
-        </form>
+        </div>
       </div>
+    </div>
 
 <div class="ideas" id="ideas">
   <div class="container mt-3 idea">
     <div class="row">
       <div class="span12">
-    <button id="newIdeaButton" class="btn btn-info newIdeaButton" data-toggle="modal" data-target="#myModal1">New Idea</button>
+    <button id="newIdeaButton" class="btn btn-info newIdeaButton"
+     data-backdrop="static" data-toggle="modal" data-target="#myModal1">New Idea</button>
     <div class="idea-modal modal fade" id="myModal1">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -95,7 +108,7 @@
         <div class="col">
           <label>Category:
             <select id="category" class="form-control-plaintext" name="idea[category]">
-              <option>Choose Category</option>
+              <option value="">Choose Category</option>
               <option value="music">music</option>
               <option value="sports">sports</option>
               <option value="tech">tech</option>
@@ -174,28 +187,38 @@
   <div class="container mt-3 task">
     <div class="row">
       <div class="span12">
-  <button id="newTaskButton" class="btn btn-info newTaskButton" data-toggle="modal" data-target="#myModal2">New Task</button>
+  <button id="newTaskButton" class="btn btn-info newTaskButton"
+  data-backdrop="static" data-toggle="modal" data-target="#myModal2">New Task</button>
   <div class="task-modal modal fade" id="myModal2">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
 <form id="new-task">
-  <div class="form-row-1">
   <button type="button" class="close" data-dismiss="modal">x</button>
+  <div class="form-row">
+    <div class="col">
   Start Date: <input id="start_date" class="form-control-plaintext" type="date"
         name="task[start_date]" placeholder="Start Date">
+      </div>
+      <div class="col">
   End Date: <input id="end_date" class="form-control-plaintext" type="date"
         name="task[end_date]" placeholder="End Date">
       </div>
-      <div class="col">
-  <select id="priority" name="task[priority]">
-    <option>Priority</option>
+      </div>
+      <div class="form-row">
+        <div class="col">
+  Priority Type: <select id="priority" name="task[priority]">
+    <option value="">Select</option>
     <option id="high" value="high">High</option>
     <option id="neutral" value="neutral">Neutral</option>
     <option id="low" value="low">Low</option>
   </select>
 </div>
-  <textarea id="task_description" name="task[description]" placeholder="Task"></textarea>
+Task:
+<div class="col">
+  <textarea id="task_description" name="task[description]" placeholder="task"></textarea>
+</div>
+</div>
   <div class="modal-footer save" style="margin-right: 400px;">
   <button type="submit">Save</button>
 </div>

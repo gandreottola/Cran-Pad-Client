@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Idea-Pad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <div class="navigation">
+<header>
+  <h1>Idea-Task Manager</h1>
+<nav>
+  <ul class="nav-links" id="nav-links">
+    <li class="settings" id="settings"><a href="#">Settings</a></li>
+    <li class="ideaLink" id="ideaButton"><a href="#">Idea</a></li>
+    <li class="taskLink" id="taskButton"><a href="#">Task</a></li>
+  </ul>
+</nav>
+<a href="#"><button id="sign-out">Sign Out</button></a>
+</header>
+</div>
+
+<h3 id="message" class="alert" style="position: fixed; font-size: 20px; width: 200px;
+    border: 0; margin: 0; padding: 0;"></h3>
+
+    <div class="login-forms">
+    <form class="sign-up" id="sign-up">
+      <input type="email" name="credentials[email]" placeholder="Email">
+      <input type="password" name="credentials[password]" placeholder="Password">
+      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password">
+      <button class="signup-button">Sign Up</button>
+      <p class="signup-message">Already Registered? <a href="#">Login</a>
+      </p>
+    </form>
+
+    <form class="sign-in" id="sign-in">
+      <input type="email" name="credentials[email]" placeholder="Email">
+      <input type="password" name="credentials[password]" placeholder="Password">
+      <button class="login">Login</button>
+      <p class="signup-message">Didn't Register? <a href="#">Sign Up</a></p>
+    </form>
+  </div>
+
+  <div id="nav-buttons" class="nav-buttons">
+      <div id="signin-settings" class="container align-center">
+        <div class="row" style="width: 500px;">
+          <div class="p-4">
+          <button  class="btn btn-primary" data-toggle="collapse"
+          data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Change Password</button>
+          <div style="width: 200px;">
+                    <div class="collapse" id="collapseExample">
+                  <form id="change-password">
+                    <input type="password" name="passwords[old]" placeholder="Old Password" >
+                    <input type="password" name="passwords[new]" placeholder="New Password">
+                    <button  class="btn btn-outline-dark" type="submit">Submit Change</button>
+                  </form>
+                </div>
+              </div>
+        </div>
+
+        <div class="p-4">
+          <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample2"
+          aria-expanded="false" aria-controls="collapseExample2">Change Current Email</button>
+          <div style="width: 200px;">
+          <div class="collapse" id="collapseExample2">
+            <form id="change-email">
+              <input type="email" name="user[email]" placeholder="New Email">
+              <button class="btn btn-outline-dark" type="submit">Submit Change</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="ideas" id="ideas">
+  <div class="container mt-3 idea">
+    <div class="row">
+      <div class="span12">
+    <button id="newIdeaButton" class="btn btn-info newIdeaButton"
+     data-backdrop="static" data-toggle="modal" data-target="#myModal1">New Idea</button>
+    <div class="idea-modal modal fade" id="myModal1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+    <form id="new-idea" class="idea-form">
+      <button type="button" class="close" data-dismiss="modal">x</button>
+      <div class="form-row-1">
+        <label>Date:
+          <input id="date" class="form-control-plaintext" type="date" name="idea[date]">
+        </label>
+      </div>
+      <div class="form-row">
+        <div class="col">
+          <label>Name:
+            <input id="name" class="form-control-plaintext" type="text" name="idea[name]" placeholder="Idea Name">
+          </label>
+        </div>
+        <div class="col">
+          <label>Category:
+            <select id="category" class="form-control-plaintext" name="idea[category]">
+              <option value="">Choose Category</option>
+              <option value="music">music</option>
+              <option value="sports">sports</option>
+              <option value="tech">tech</option>
+              <option value="cars">cars</option>
+              <option value="homes">homes</option>
+              <option value="finance">finance</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <label>Description:
+        <textarea id="description" class="form-control-plaintext description" name="idea[description]" placeholder="Description"></textarea>
+      </label>
+      <div class="modal-footer save" style="margin-right: 400px;">
+      <button type="submit">Save</button>
+    </div>
+    </form>
+    <form id="save-edit">
+      <div class="modal-footer" style="margin-right: 400px;">
+      <button type="submit">Save Edit</button>
+    </div>
+    </form>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <button id="showIdeasButton" class="btn btn-info showIdeasButton">Show All Ideas!</button>
+    <button id="clearIdeasButton" class="btn btn-info clearIdeasButton">Clear Ideas!</button>
+
+    <div id="form-search" class="form-search">
+      <label>#<input type="text" name="idea[id]" id="search" placeholder="Search by #ID"></label>
+      <button id="showIdeaButton" class="btn btn-info">Find Idea</button>
+    </div>
+
+<div class="filter-sort">
+    <div id="filter-button-group" class="filter-buttons">
+      <label>Filter By Category:</label>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+      <button data-filter="music">Music</button>
+      </label>
+      <label class="btn btn-secondary">
+      <button data-filter="sports">Sports</button>
+    </label>
+      <label class="btn btn-secondary">
+      <button data-filter="tech">Tech</button>
+    </label>
+      <label class="btn btn-secondary">
+      <button data-filter="cars">Cars</button>
+    </label>
+      <label class="btn btn-secondary">
+      <button data-filter="homes">Homes</button>
+    </label>
+      <label class="btn btn-secondary">
+      <button data-filter="finance">Finance</button>
+    </label>
+    </div>
+    </div>
+
+    <div id="sort-button" class="sort-buttons">
+      <label>Sort By Date:</label>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+      <button data-sort-by="date">Date</button>
+    </label>
+  </div>
+    </div>
+  </div>
+</div>
+
+<div id="tasks" class="tasks">
+  <div class="container mt-3 task">
+    <div class="row">
+      <div class="span12">
+  <button id="newTaskButton" class="btn btn-info newTaskButton"
+  data-backdrop="static" data-toggle="modal" data-target="#myModal2">New Task</button>
+  <div class="task-modal modal fade" id="myModal2">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+<form id="new-task">
+  <button type="button" class="close" data-dismiss="modal">x</button>
+  <div class="form-row">
+    <div class="col">
+  Start Date: <input id="start_date" class="form-control-plaintext" type="date"
+        name="task[start_date]" placeholder="Start Date">
+      </div>
+      <div class="col">
+  End Date: <input id="end_date" class="form-control-plaintext" type="date"
+        name="task[end_date]" placeholder="End Date">
+      </div>
+      </div>
+      <div class="form-row">
+        <div class="col">
+  Priority Type: <select id="priority" name="task[priority]">
+    <option value="">Select</option>
+    <option id="high" value="high">High</option>
+    <option id="neutral" value="neutral">Neutral</option>
+    <option id="low" value="low">Low</option>
+  </select>
+</div>
+Task:
+<div class="col">
+  <textarea id="task_description" name="task[description]" placeholder="task"></textarea>
+</div>
+</div>
+  <div class="modal-footer save" style="margin-right: 400px;">
+  <button type="submit">Save</button>
+</div>
+</form>
+<form id="save-edit-task">
+  <div class="modal-footer" style="margin-right: 400px;">
+  <button type="submit">Save Edit</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<button id="showTasksButton" class="btn btn-info showTasksButton">Show All Tasks</button>
+<button id="clearTasksButton" class="btn btn-info clearTasksButton">Clear Tasks!</button>
+
+<div id="task-search" class="task-search">
+  <label>#<input type="text" name="task[id]" id="searchTask" placeholder="Search by #ID"></label>
+  <button id="showTaskButton" type="submit" class="btn btn-info">Find Task</button>
+</div>
+</div>
+</div>
+
+<div class="container" style="margin-left: 200px;">
+    <div class="row"></div>
+<div class="content row col"></div>
+<div class="task-content row col"></div>
+</div>
+
+</body>
+</html>
